@@ -4,7 +4,7 @@
 #include "baisser_pince.h"
 #include "ev3_tacho.h"
 
-//this is a ytest 
+
 
 #define Sleep( msec ) usleep(( msec ) * 1000 )
 void baisser_pince(uint8_t sn, int max_speed)
