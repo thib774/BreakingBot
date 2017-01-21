@@ -1,41 +1,98 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
+<html><head>
+
+  
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Chivo:900" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"><!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>BreakingBot</title>
-  </head>
-
-  <body>
+    <![endif]--><title>BreakingBot</title></head><body>
     <div id="container">
       <div class="inner">
 
         <header>
-          <h1>BreakingBot</h1>
+          </header><h1>BreakingBot</h1>
           <h2>Description of the architecture!</h2>
-        </header>
+        
 
 
 
         <hr>
 
         <section id="main_content">
-	<p><a href="index.html" >Go back to the contents page</a></p>
+	</section><p><a href="index.html">Go back to the contents page</a></p>
 	
 
-	<p> Custom-built for Eurecom OS Competition, BreakingBot has as a brain a LEGO® MINDSTORMS® EV3 which is connected to five elements (two motors for the wheels, an ultrasonic sensor, a gyro sensor and a third motor for the claw). All the elements are installed in order to have a robot looking like a two-wheel drive car.</p>
+	<p>
+Custom-built for Eurecom OS Competition, BreakingBot has as a brain a
+LEGO® MINDSTORMS® EV3 which is connected to five elements (two motors
+for the wheels, an ultrasonic sensor, a gyro sensor and a third motor
+for the claw). All the elements are installed in order to have a robot
+looking like a two-wheel drive car.</p>
+<p>&lt;picture&gt;</p>
+<p>An <span style="font-weight: bold;">ultrasonic sensor</span> is placed horizontally<br>
+in front of the robot. It is able to provide&nbsp;&nbsp;  <br>
+the distance between itself and <br>
+the closest object which is in front of him. <br>
+</p>
+<br>
+<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; A <span style="font-weight: bold;">gyro sensor</span>
+is installed in the axis of the &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; robot.
+It provides the angular position of itself - &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; and therefore of the robot.</p>
+<br>
+<p>Since the robot has to grab a ball (whose size is around VALUE*VALUE mm), an ingenious <span style="font-weight: bold;">claw</span> has been used. It allows both to grab the ball and to maintain it in an upper position.</p>
+<p>A few months ago, BreakingBot only had a claw that could grab the
+ball and keep it in front of it. But this claw either hid the
+ultrasonic sensor (problematic...) or had to have the sensor on itself (too heavy to raise). An update therefore lead to the current claw, that is represented below:</p>
+<p>&lt;picture&gt;&nbsp;&nbsp; <br>
+</p>
+<p>This claw is activated through the EV3 Medium Servo Motor (a). Using
+several gears (b), the rotational movement is transferred forward.
+Then, two symetrical combinations of two technic angular wheels (c) which have perpendicular axes in order to change the axis of the rotational movement. <br>
+</p>
+<p>The process that allows BreakingBot to grab a ball includes two
+different sequences that are produced by a single action of the motor.</p>
+<br>
+<p>Firstly, when the claw is opened, the rotational movement which will
+be created by the motor and converted by the gears will lead to the
+shutting of the two arms of the claw. <br>
+</p>
+<p>&lt;gif&gt;<br>
+</p>
+<p>Secondly, once the two arms are touching themselves (claw closed),
+they provide a complete resistance which makes impossible for the
+technic angular wheels and to the gears to transfer anymore energy. In
+this case, the energy provided by the motorwill raise the whole claw! <br>
+</p>
+&lt;gif2&gt;.<br>
+<br>
+<br>
+
 
           <p>Created by Sofiène Jerbi, Thibault Petitjean (<a href="https://github.com/thib774" class="user-mention">@thib774</a>) and Florian Kohler (<a href="https://github.com/FlorianKohler" class="user-mention">@FlorianKohler</a>)</p>
 
 <p>OS Course, Eurecom 2k16</p>
-        </section>
+        
 
         <footer>
           Breakingbot is maintained by <a href="https://github.com/thib774">thib774</a><br>
@@ -45,5 +102,4 @@
         
       </div>
     </div>
-  </body>
-</html>
+  </body></html>
