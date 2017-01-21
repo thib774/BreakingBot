@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 
+
   
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -16,59 +17,49 @@
         <header>
           </header><h1>BreakingBot</h1>
           <h2>Description of the architecture!</h2>
-        
-
-
-
         <hr>
-
         <section id="main_content">
 	</section><p><a href="index.html">Go back to the contents page</a></p>
-	
-
 	<p>
+
 Custom-built for Eurecom OS Competition (rules are available <a href="http://soc.eurecom.fr/OS/projects_fall2016.html">here</a>), <strong> BreakingBot </strong> has as a brain a
 LEGO® MINDSTORMS® EV3 which is connected to five elements (two motors
 for the wheels, an ultrasonic sensor, a gyro sensor and a third motor
 for the claw). All the elements are installed in order to have a robot
 looking like a two-wheel drive car.</p>
-<p>&lt;picture&gt;</p>
-<p>An <span style="font-weight: bold;">ultrasonic sensor</span> is placed horizontally<br>
-in front of the robot. It is able to provide&nbsp;&nbsp;  <br>
-the distance between itself and <br>
-the closest object which is in front of him. <br>
+
+<p><center><img style="width: 164px; height: 292px;" src="images/vue_globale.jpg"></center><br>
 </p>
-<br>
-<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; A <span style="font-weight: bold;">gyro sensor</span>
-is installed in the axis of the &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; robot.
-It provides the angular position of itself - &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; and therefore of the robot.</p>
+
+
+ 
+<p>An <span style="font-weight: bold;">ultrasonic sensor</span> is
+placed horizontally in front of the robot. It is able to provide the
+distance between itself and the closest object which is in front of
+him.
+</p>
+<p><center><img style="width: 193px; height: 210px;" src="images/ultrasonic.jpg"></center><br>
+</p>
+
+<p>A <span style="font-weight: bold;">gyro sensor</span>
+is installed in the axis of the robot.It provides the angular position of itself - and therefore of the robot.</p>
+
+<p><center><img style="width: 426px; height: 240px;" src="images/gyro.jpg"></center><br>
+
 <br>
 <p>Since the robot has to grab a ball (whose size is around VALUE*VALUE mm), an ingenious <span style="font-weight: bold;">claw</span> has been used. It allows both to grab the ball and to maintain it in an upper position.</p>
 <p>A few months ago, BreakingBot only had a claw that could grab the
 ball and keep it in front of it. But this claw either hid the
-ultrasonic sensor (problematic...) or had to have the sensor on itself (too heavy to raise). An update therefore lead to the current claw, that is represented below:</p>
+ultrasonic sensor (problematic...) or had to have the sensor on itself
+(too heavy to raise). An update therefore lead to the current claw,
+that is represented below:</p>
 <p>&lt;picture&gt;&nbsp;&nbsp; <br>
 </p>
 <p>This claw is activated through the EV3 Medium Servo Motor (a). Using
 several gears (b), the rotational movement is transferred forward.
-Then, two symetrical combinations of two technic angular wheels (c) which have perpendicular axes in order to change the axis of the rotational movement. <br>
+Then, two symetrical combinations of two technic angular wheels (c)
+which have perpendicular axes in order to change the axis of the
+rotational movement. <br>
 </p>
 <p>The process that allows BreakingBot to grab a ball includes two
 different sequences that are produced by a single action of the motor.</p>
