@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd ../src
+arm-linux-gnueabi-gcc -I../../../ev3 -pthread -O3 -std=gnu99 -W  -Wno-comment -c small_arena.c -o small_arena.o
+arm-linux-gnueabi-gcc small_arena.o grab_gauche.o grab_droite.o mes_sonar_fast.o avancer_dst_sonar.o tourner_droite.o tourner_gauche.o avancer_dst.o reculer_dst.o demi_tour.o mes_sonar.o bouger_sonar.o poser_balle.o attraper_balle_init.o -lm -pthread  ../../../../../ev3dev-c/lib/libev3dev-c.a  -o ../executables/small_arena /usr/lib/arm-linux-gnueabi/libbluetooth.a
+
+arm-linux-gnueabi-gcc -I../../../ev3 -pthread -O3 -std=gnu99 -W -Wno-comment -c large_arena.c -o large_arena.o
+arm-linux-gnueabi-gcc large_arena.o grab_gauche.o grab_droite.o mes_sonar_fast.o avancer_dst_sonar.o tourner_droite.o tourner_gauche.o avancer_dst.o reculer_dst.o demi_tour.o mes_sonar.o bouger_sonar.o poser_balle.o attraper_balle_init.o -lm -pthread  ../../../../../ev3dev-c/lib/libev3dev-c.a  -o ../executables/large_arena /usr/lib/arm-linux-gnueabi/libbluetooth.a
+
+echo "Second compilation done"
+
+#You need to install lftp if not done : sudo apt-get install lftp
+
+#lftp sftp://user:password@host  -e "put local-file.name; bye"
