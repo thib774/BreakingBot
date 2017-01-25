@@ -26,14 +26,25 @@
     <section id="main_content">
 	<p><a href="index.html" >Go back to the contents page</a></p>
 	
-	<p> You want to run our code on your robot? Let's see a short tutorial, supposing that you are using a Linux environment.<br/>
+	<p> You want to run our code on your robot? Let's see a short tutorial, supposing that you are using a Linux environment.</p><br/>
 
-It seems a little bit long to install docker to cross-compile instead of just using the robot to compile, 
+<h3>FIRST STEP</h3>
+<p>First of all, you need to flash a Debian GNU/Linux system on the SD card of the robot.
+To install Linux on your ev3, follow the indications made by Ralph Hempel and David Lechner, given <a href="http://www.ev3dev.org/docs/getting-started/">here</a>.<br/></p>
+
+	    <p>Now, to use our code with the robot, you have 2 poosibilities:</p>
+	    <ul><li>Download our code on your computer (considering you have a Linux environment), cross-compile it and send the executables to the robot</li>
+		    <li>Download our code, compile it and launch it on the robot</li>
+	    </ul>
+
+	    
+	    
+<h3>CROSS-COMPILATION WITH DOCKER</h3>	
+<br/>	    
+<p>It seems a little bit long to install docker to cross-compile instead of just using the robot to compile, 
 but believe us, even if you will of course spend a certain amount of time to install docker, 
 but then only a few seconds will be needed to compile and transfer the executable on the robot. </p>
 
-
-<h3>DOCKER</h3>
 <p>
 On your user directory (/home/$USER): <br/>
 Clone the ev3dev github
@@ -82,11 +93,8 @@ Now that you are a docker Master, start a new container (you know how to do it, 
 <p>Now in the BreakingBot/executables directory, you have the executables needed for the small and the big arena !! :) You now just to transfer them on your robot (a transfer script is provided, but you have to launch it outside of the docker container)
 </p>
 
-<p>
-<h3>ON THE ROBOT</h3>
-Firstly, the idea is to flash a Debian GNU/Linux system on the SD card of the robot.
- To install Linux on your ev3, follow the indications given  <a href="http://www.ev3dev.org/docs/getting-started/">here</a>.<br/>
 
+<h3>ON THE ROBOT</h3>
 Now, update the robot with the latest packages
 <br/><code>$ sudo apt-get update&& sudo apt-get upgrade</code><br/>
 <br/>
@@ -105,7 +113,7 @@ Now, clone the BreakingBot git to use it:
    <br/>$./first_compilation_robot
    <br/>$./second_compilation_robot</code> (those steps may take some time)<br/>
 <br/>
-<p>You know have all the executables in the executables directories. 
+	    <p>You know have all the executables in the executables directories.
 </p>
 
 
