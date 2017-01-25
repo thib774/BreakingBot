@@ -38,9 +38,8 @@ To install Linux on your ev3, follow the indications made by Ralph Hempel and Da
 	    </ul>
 
 	    
-	    
-<h3>CROSS-COMPILATION WITH DOCKER</h3>	
 <br/>	    
+<h3>CROSS-COMPILATION WITH DOCKER</h3>		    
 <p>It seems a little bit long to install docker to cross-compile instead of just using the robot to compile, 
 but believe us, even if you will of course spend a certain amount of time to install docker, 
 but then only a few seconds will be needed to compile and transfer the executable on the robot. </p>
@@ -90,12 +89,13 @@ Now that you are a docker Master, start a new container (you know how to do it, 
     <br/><code>./first_compilation_docker
     <br/>./second_compilation_docker</code><br/>
 <br/>
-<p>Now in the BreakingBot/executables directory, you have the executables needed for the small and the big arena !! :) You now just to transfer them on your robot (a transfer script is provided, but you have to launch it outside of the docker container)
+<p>Now in the BreakingBot/executables directory, you have the executables needed for the small and the big arena !! :) 
+You now just need to transfer them on your robot (a transfer script is provided in the /executables folder, but you have to launch it outside of the docker container).
 </p>
 
-
+<br/>
 <h3>ON THE ROBOT</h3>
-Now, update the robot with the latest packages
+	    Update the robot with the latest packages
 <br/><code>$ sudo apt-get update&& sudo apt-get upgrade</code><br/>
 <br/>
 Install extra packages you will need for the project:
