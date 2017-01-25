@@ -86,8 +86,11 @@ Now you can use your brand new image by typing:
     <br/><code>$ sudo docker run -it --rm -v /home/$USER/:/src -w /src ev3dev-bluetooth</code><br/>
 <br/>
 Now that you are a docker Master, start a new container (you know how to do it, don’t you?) go into the BreakingBot/docker directory, and enter, in order:
-    <br/><code>./first_compilation_docker
-    <br/>./second_compilation_docker</code><br/>
+    <br/><code>
+	      <br/>$ cd ~/ev3dev-c/source/ev3/BreakingBot/docker
+	      <br/>$ chmod +x *
+	      <br/>$ ./first_compilation_docker
+    <br/>$ ./second_compilation_docker</code><br/>
 <br/>
 	      <p>Now in the <l>BreakingBot/executables</l> directory, you have the executables needed for the small and the big arena !! :) 
 You now just need to transfer them on your robot (a transfer script is provided in the <l>BreakingBot/executables</l> folder, but you have to launch it outside of the docker container).
@@ -110,6 +113,7 @@ You are now ready to compile a toy example, and to run it. To do so, you first n
 Now, clone the BreakingBot git to use it:
    <br/><code>$ git clone --recursive https://github.com/thib774/BreakingBot.git
    <br/>$ cd BreakingBot/robot
+   <br/>$ chmod +x *
    <br/>$./first_compilation_robot
    <br/>$./second_compilation_robot</code> (those steps may take some time)<br/>
 <br/>
