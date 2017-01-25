@@ -26,7 +26,7 @@
     <section id="main_content">
 	<p><a href="index.html" >Go back to the contents page</a></p>
 	
-	<p> You want to run our code on your robot? Let's see a short tutorial, supposing that you are using a Linux environment.</br>
+	<p> You want to run our code on your robot? Let's see a short tutorial, supposing that you are using a Linux environment.<br/>
 
 It seems a little bit long to install docker to cross-compile instead of just using the robot to compile, 
 but believe us, even if you will of course spend a certain amount of time to install docker, 
@@ -35,77 +35,77 @@ but then only a few seconds will be needed to compile and transfer the executabl
 
 <h3>DOCKER</h3>
 <p>
-On your user directory (/home/$USER): </br>
+On your user directory (/home/$USER): <br/>
 Clone the ev3dev github
-    </br><code>$ git clone https://github.com/in4lio/ev3dev-c.git </code></br>
+    <br/><code>$ git clone https://github.com/in4lio/ev3dev-c.git </code><br/>
 	(Install git if needed : <code>$ sudo apt-get install git</code>)
-    </br><code>$ cd ~/ev3dev-c/source/ev3</code></br>
+    <br/><code>$ cd ~/ev3dev-c/source/ev3</code><br/>
 	Clone the BreakingBot directory:
-    </br><code>$ git clone --recursive https://github.com/thib774/BreakingBot.git</code></p>
+    <br/><code>$ git clone --recursive https://github.com/thib774/BreakingBot.git</code></p>
 
 <p>
-Install docker: </br>
-<a href="https://docs.docker.com/engine/installation/linux/ubuntu/">https://docs.docker.com/engine/installation/linux/ubuntu/</a>
+Install docker: <br/>
+<a href="https://docs.docker.com/engine/installation/linux/">https://docs.docker.com/engine/installation/linux/ (choose your distribution and install Docker with repositories) </a>
 </p>
 <p>
 Install the ev3-dev image:
-</br><code>$ docker pull ev3dev/debian-jessie-cross</br></code>
+<br/><code>$ docker pull ev3dev/debian-jessie-cross<br/></code>
 This docker image does not have all the required librairies. To install them, you need to run a cointainer, install all the librairies and commit this container as an image:</br>
     Run a container :
-</br><code>$ sudo docker run -it -v /home/$USER/:/src -w /src ev3/debian-jessie-cross </br></code>
+<br/><code>$ sudo docker run -it -v /home/$USER/:/src -w /src ev3/debian-jessie-cross <br/></code>
 In the container :
-</br><code>$ sudo apt-get update && sudo apt-get upgrade</br>
-$sudo apt-get install libbluetooth-dev:armel</br>
-$exit</code></br>
+<br/><code>$ sudo apt-get update && sudo apt-get upgrade<br/>
+$sudo apt-get install libbluetooth-dev:armel<br/>
+$exit</code><br/>
 Now that we have a running container with all the librairies installed, we need to commit it as a new image :
-    </br><code>$ sudo docker ps -l</code></br>
+    <br/><code>$ sudo docker ps -l</code><br/>
 Get the ID of the running container and copy it (the ID is 12 characters long) :
-    </br><code>$ sudo docker commit (paste the ID of the container here) ev3dev-bluetooth </code></br>
+    <br/><code>$ sudo docker commit (paste the ID of the container here) ev3dev-bluetooth </code><br/>
 We now need to remove the running container :
-    </br><code>$ sudo docker stop (paste the ID)</br>
-    $sudo docker rm (paste the ID)</code></br>
-You now have a brand new image to work with !</br>
+    <br/><code>$ sudo docker stop (paste the ID)<br/>
+    $sudo docker rm (paste the ID)</code><br/>
+You now have a brand new image to work with !<br/>
 You can check it by typing:
-    </br><code>$ sudo docker images</code></br>
+    <br/><code>$ sudo docker images</code><br/>
 The result should show the images ev3dev/debian-jessie-cross and ev3dev-bluetooth (whose size is bigger because of the librairies we installed in).</br>
 If you want to delete an image (you should keep ev3dev/debian-jessie-cross in case of a problem):
-    </br><code>$ sudo docker images (list all the images)</br>
-    $ sudo docker rmi (ID of the image you want to remove)</code></br>
-</br>
+	    <br/><code>$ sudo docker images</code> (list all the images)<br/>
+    <code>$ sudo docker rmi (ID of the image you want to remove)</code><br/>
+<br/>
 Now you can use your brand new image by typing:
-    </br><code>$ sudo docker run -it --rm -v /home/$USER/:/src -w /src ev3dev-bluetooth</code></br>
-</br>   
+    <br/><code>$ sudo docker run -it --rm -v /home/$USER/:/src -w /src ev3dev-bluetooth</code><br/>
+<br/>
 Now that you are a docker Master, start a new container (you know how to do it, don’t you?) go into the BreakingBot/docker directory, and enter, in order:
-    </br><code>./first_compilation_docker
-    </br>./second_compilation_docker</code></br>
-</br>
-Now in the BreakingBot/executables directory, you have the executables needed for the small and the big arena !! :) You now just to transfer them on your robot (a transfer script is provided, but you have to launch it outside of the docker container)
+    <br/><code>./first_compilation_docker
+    <br/>./second_compilation_docker</code><br/>
+<br/>
+<p>Now in the BreakingBot/executables directory, you have the executables needed for the small and the big arena !! :) You now just to transfer them on your robot (a transfer script is provided, but you have to launch it outside of the docker container)
 </p>
 
 <p>
 <h3>ON THE ROBOT</h3>
 Firstly, the idea is to flash a Debian GNU/Linux system on the SD card of the robot.
- To install Linux on your ev3, follow the indications given  <a href="http://www.ev3dev.org/docs/getting-started/">here</a>.</br>
+ To install Linux on your ev3, follow the indications given  <a href="http://www.ev3dev.org/docs/getting-started/">here</a>.<br/>
 
 Now, update the robot with the latest packages
-</br><code>$ sudo apt-get update&&sudo apt-get upgrade</code></br>
-</br>
+<br/><code>$ sudo apt-get update&& sudo apt-get upgrade</code><br/>
+<br/>
 Install extra packages you will need for the project:
-</br><code>$ sudo apt-get install gcc make libbluetooth-dev</code></br>
-</br>
+<br/><code>$ sudo apt-get install gcc make libbluetooth-dev</code><br/>
+<br/>
 You are now ready to compile a toy example, and to run it. To do so, you first need to install the development environment on the robot:
-</br><code>$ git clone https://github.com/in4lio/ev3dev-c.git
-</br>$ cd ~/ev3dev-c/source/ev3
-</br>$ make
-</br>$ sudo make install</code></br>
-</br>
+<br/><code>$ git clone https://github.com/in4lio/ev3dev-c.git
+<br/>$ cd ~/ev3dev-c/source/ev3
+<br/>$ make
+<br/>$ sudo make install</code><br/>
+<br/>
 Now, clone the BreakingBot git to use it:
-   </br><code>$ git clone --recursive https://github.com/thib774/BreakingBot.git
-   </br>$ cd BreakingBot/robot
-   </br>$./first_compilation_robot
-   </br>$./second_compilation_robot</code></br>
-</br>	
-You know have all the executables in the executables directories. 
+   <br/><code>$ git clone --recursive https://github.com/thib774/BreakingBot.git
+   <br/>$ cd BreakingBot/robot
+   <br/>$./first_compilation_robot
+   <br/>$./second_compilation_robot</code> (those steps may take some time)<br/>
+<br/>
+<p>You know have all the executables in the executables directories. 
 </p>
 
 
@@ -124,7 +124,7 @@ You know have all the executables in the executables directories.
 
         <footer>
           Breakingbot is maintained by <a href="https://github.com/thib774">thib774</a><br>
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a> and written by Thibault Petitjean. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
         
