@@ -1,8 +1,0 @@
-#!/bin/bash
-cd ../src
-list=`ls|cut -d'.' -f1|sort -u`
-for i in $list;
-do
-		gcc -I../../../../ev3dev-c/source/ev3 -pthread -O3 -std=gnu99 -W -Wno-comment -c "$i".c -o "$i".o
-done
-echo "First compilation done."
