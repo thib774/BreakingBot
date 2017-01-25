@@ -19,7 +19,7 @@
 
         <header>
           <h1>BreakingBot</h1>
-          <h2>How to use our code!</h2>
+          <h2>How to use our code?</h2>
         </header>
       
 	<hr>
@@ -65,8 +65,8 @@ This docker image does not have all the required librairies. To install them, yo
 <br/><code>$ sudo docker run -it -v /home/$USER/:/src -w /src ev3/debian-jessie-cross <br/></code>
 In the container :
 <br/><code>$ sudo apt-get update && sudo apt-get upgrade<br/>
-$sudo apt-get install libbluetooth-dev:armel<br/>
-$exit</code><br/>
+$ sudo apt-get install libbluetooth-dev:armel<br/>
+$ exit</code><br/>
 Now that we have a running container with all the librairies installed, we need to commit it as a new image :
     <br/><code>$ sudo docker ps -l</code><br/>
 Get the ID of the running container and copy it (the ID is 12 characters long) :
