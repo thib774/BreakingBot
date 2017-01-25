@@ -1,3 +1,0 @@
-#!/bin/bash
-
-lftp sftp://robot:maker@10.42.0.3  -e "put small_arena; put large_arena; bye"
