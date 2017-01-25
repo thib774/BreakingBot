@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>BreakingBot</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>BreakingBot</h1>
+          <h2>The algorithms : movements</h2>
+        </header>
+<hr>
+<section id="main_content">
+<p>Go back to the<a href="index.html" > contents page</a> or the <a href="algorithms.html" >algorithms section</a>.</p>
+
+		<p>Let's see how our robot navigates.
+		Several functions are available to make navigation possible:</p>
+			<ul><li>move_sonar(distance)</li>
+			<li>move_distance_forward(distance)</li> 
+			<li>make_distance_backward(distance)</li> 
+			<li>turn_right()</li>
+			<li>turn_left()</li>
+			<li>u_turn()</li> </ul>
+			<p>and some others to grab the ball or drop it.
+			Most of these functions do what their name implies. Here is what some of them do:</p>
+<pre><code>
+void <span style="color:#80BFFF">move_sonar</span>(distance){
+//moves to the position where the value given by the ultrasonic sensor is <em>distance</em> +/- 5 mm
+}
+		
+void <span style="color:#80BFFF">move_distance_forward</span>(distance){
+//goes straight on for <em>distance</em> millimeters
+}
+
+void <span style="color:#80BFFF">move_distance_backward</span>(distance){
+//back-pedals for <em>distance</em> millimeters
+}
+
+</pre></code>
+
+<p>These functions are used both in the small arena and the big arena.
+Let's see how they are used in the <strong>small arena</strong>. Firstly as the <strong>beginner</strong>. </p>
+
+<pre><code>
+void <span style="color:#80BFFF">beginner_going</span>(){}
+	//Starting in the beginner starting area, looking at the bottom wall.
+	<span style="color:#DF01A5">move_sonar(930)</span>
+	//goes back until the center of rotation of the robot is at half of the height of the arena
+	<span style="color:#DF01A5">turn_left()</span>
+	//turns left in order to be horizontal and looking at the closest wall
+	<span style="color:#DF01A5">move_sonar(436)</span>
+	//going backwards until the robot is close to the ball area
+	<span style="color:#DF01A5">u_turn()</span>
+	//turns around itself in order to have the claw located in the middle of the ball area
+	<span style="color:#DF01A5">drop_ball()</span>
+	//drops the ball in the ball area
+	//sends BALL message to the server
+	<span style="color:#DF01A5">move_distance_backward(100)</span>
+	//goes a little bit backwards
+	<span style="color:#DF01A5">u_turn()</span>
+	//turn around itself in order to watch the wall on the right of the arena
+	<span style="color:#DF01A5">move_sonar(230)</span>
+	//goes closer to the wall
+	<span style="color:#DF01A5">turn_left()</span>
+	//turns left in order to be in front of its destination area
+	<span style="color:#DF01A5">move_sonar(230)</span>
+	//goes forward until it is in the destination area
+	
+	//sends NEXT message to the server
+	//waits for a NEXT message from the teammate 
+	if <span style="color:#04B404">NEXT_message_received</span> {
+		<span style="color:#DF01A5">beginner_return()</span>	
+	}
+}
+
+void <span style="color:#80BFFF">beginner_return</span>{
+	<span style="color:#DF01A5">move_sonar(810)</span>
+	//goes backward until being a little bit higher than the ball area
+	<span style="color:#DF01A5">turn_right()</span>
+	//turns right in order to be horizontal and looking at the closest wall
+	<span style="color:#DF01A5">move_sonar(710)</span>
+	//goes backward in order to arrive on the top-left corner of the ball area
+	<span style="color:#DF01A5">scan_right()</span>
+	//looks at the ball on its right and grabs it
+	//sends BALL message to the server 
+	//goes horizontally again
+	<span style="color:#DF01A5">move_sonar(230)</span>
+	//moves horizontally until being closed from the right wall
+	<span style="color:#DF01A5">turn_right()</span>
+	//turns right in order to be watching at the beginner starting area (its direction)
+	<span style="color:#DF01A5">move_sonar(230)</span>
+	//goes forward until it is in the starting area
+	<span style="color:#DF01A5">beginner_going()</span>
+	//starts again
+}
+</pre></code>
+
+<p> Here is a short representation of the trajectory of the robot as a beginner - following the code above.</p>
+<p><center><img style="width: 400px; height: 400px;" src="images/GIFBeginner.gif"></center><br/>
+</p>
+
+<p>In case BreakingBot is the <strong>finisher</strong>, the pseudo-code is the one below. 
+Note that "finisher_going" is like "beginner_return" but with a central symmetry. 
+Likewise, "finisher_return" is like "beginner_going" with the same symmetry. :</p>
+	
+<pre><code>
+void <span style="color:#80BFFF">finisher_going()</span>{
+	<span style="color:#DF01A5">move_sonar(810)</span>
+	//goes backward until being a little bit higher than the ball area
+	<span style="color:#DF01A5">turn_left()</span>
+	//turns left in order to be horizontal and looking at the closest wall
+	<span style="color:#DF01A5">move_sonar(710)</span>
+	//goes backward in order to arrive on the top-left corner of the ball area
+	<span style="color:#DF01A5">scan_left()</span>
+	//looks at the ball on its left and grabs it
+	//sends BALL message to the server 
+	//goes horizontally again
+	<span style="color:#DF01A5">move_sonar(230)</span>
+	//moves horizontally until being closed from the right wall
+	<span style="color:#DF01A5">turn_left()</span>
+	//turns left in order to be watching at the finisher destination area (its direction)
+	<span style="color:#DF01A5">move_sonar(230)</span>
+	//goes forward until it is in the destination area
+	<span style="color:#DF01A5">finisher_going()</span>
+	//starts again	
+}
+
+void <span style="color:#80BFFF">finisher_return</span>{
+	<span style="color:#DF01A5">move_sonar(930)</span>
+	//goes back until the center of rotation of the robot is at half of the height of the arena
+	<span style="color:#DF01A5">turn_right()</span>
+	//turns right in order to be horizontal and looking at the closest wall
+	<span style="color:#DF01A5">move_sonar(436)</span>
+	//going backwards until the robot is close to the ball area
+	<span style="color:#DF01A5">u_turn()</span>
+	//turns around itself in order to have the claw located in the middle of the ball area
+	<span style="color:#DF01A5">drop_ball()</span>
+	//drops the ball in the ball area
+	//sends BALL message to the server
+	<span style="color:#DF01A5">move_distance_backward(100)</span>
+	//goes a little bit backwards
+	<span style="color:#DF01A5">u_turn()</span>
+	//turn around itself in order to watch the wall on the right of the arena
+	<span style="color:#DF01A5">move_sonar(230)</span>
+	//goes closer to the wall
+	<span style="color:#DF01A5">turn_right()</span>
+	//turns right in order to be in front of its starting area
+	<span style="color:#DF01A5">move_sonar(230)</span>
+	//goes forward until it is in the starting area
+	//sends NEXT message to the server
+	//waits for a NEXT message from the teammate 
+	if <span style="color:#04B404">NEXT_message_received</span>{
+		<span style="color:#DF01A5">finisher_going()</span>
+	}
+}
+</pre></code>
+        <hr>
+
+        <section id="main_content">
+<p>Go back to the<a href="index.html" > contents page</a> or the <a href="algorithms.html" >algorithms section</a>.</p>
+	
+          <p>Created by Sofiène Jerbi, Thibault Petitjean (<a href="https://github.com/thib774" class="user-mention">@thib774</a>) and Florian Kohler (<a href="https://github.com/FlorianKohler" class="user-mention">@FlorianKohler</a>)</p>
+
+<p>OS Course, Eurecom 2k16</p>
+        </section>
+
+        <footer>
+          Breakingbot is maintained by <a href="https://github.com/thib774">thib774</a><br/>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a> and written by Florian Kohler.Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
