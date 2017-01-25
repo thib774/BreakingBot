@@ -73,8 +73,8 @@ Get the ID of the running container and copy it (the ID is 12 characters long) :
     <br/><code>$ sudo docker commit (paste the ID of the container here) ev3dev-bluetooth </code><br/>
 We now need to remove the running container :
     <br/><code>$ sudo docker stop (paste the ID)<br/>
-    $sudo docker rm (paste the ID)</code><br/>
-You now have a brand new image to work with !<br/><br/>
+    $sudo docker rm (paste the ID)</code><br/><br/>
+You now have a brand new image to work with !<br/>
 You can check it by typing:
     <br/><code>$ sudo docker images</code><br/>
 The result should show the images ev3dev/debian-jessie-cross and ev3dev-bluetooth (whose size is bigger because of the librairies we installed in).</br>
@@ -89,13 +89,13 @@ Now that you are a docker Master, start a new container (you know how to do it, 
     <br/><code>./first_compilation_docker
     <br/>./second_compilation_docker</code><br/>
 <br/>
-<p>Now in the BreakingBot/executables directory, you have the executables needed for the small and the big arena !! :) 
-You now just need to transfer them on your robot (a transfer script is provided in the /executables folder, but you have to launch it outside of the docker container).
+	      <p>Now in the <l>BreakingBot/executables</l> directory, you have the executables needed for the small and the big arena !! :) 
+You now just need to transfer them on your robot (a transfer script is provided in the <l>BreakingBot/executables</l> folder, but you have to launch it outside of the docker container).
 </p>
 
 <br/>
 <h3>ON THE ROBOT</h3>
-	    Update the robot with the latest packages
+	    Connect to your robot with SSH and link it to the Internet, and the update the robot with the latest packages:
 <br/><code>$ sudo apt-get update&& sudo apt-get upgrade</code><br/>
 <br/>
 Install extra packages you will need for the project:
@@ -113,7 +113,7 @@ Now, clone the BreakingBot git to use it:
    <br/>$./first_compilation_robot
    <br/>$./second_compilation_robot</code> (those steps may take some time)<br/>
 <br/>
-	    <p>You know have all the executables in the executables directories.
+	      <p>You know have all the executables in the <l>BreakingBot/executables</l> directories.
 </p>
 
 
