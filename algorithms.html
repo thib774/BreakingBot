@@ -26,11 +26,15 @@
 <p><a href="index.html" >Go back to the contents page</a></p>
 
 		<p>Let's see how our robot navigates.
-		Several functions are available to make navigation possible :
-		move_sonar(distance), move_distance_forward(distance), make_distance_backward(distance), 
-		turn_right(), turn_left(), u_turn(), and some others to grab the ball or drop it.
-		Most of these functions do what their name implies. Here is what some of them do:</p>
-		
+		Several functions are available to make navigation possible:</p>
+			<ul><li>move_sonar(distance)</li>
+			<li>move_distance_forward(distance)</li> 
+			<li>make_distance_backward(distance)</li> 
+			<li>turn_right()</li>
+			<li>turn_left()</li>
+			<li>u_turn()</li> </ul>
+			<p>and some others to grab the ball or drop it.</p>
+		Most of these functions do what their name implies. Here is what some of them do:
 <pre><code>
 void move_sonar(distance){
 //moves to the position where the value given by the ultrasonic sensor is <em>distance</em> +/- 5 mm
