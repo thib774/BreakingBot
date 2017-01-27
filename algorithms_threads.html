@@ -67,7 +67,7 @@ y_robot ( + mutex_y_robot) // the ordinate of the robot</code></p>
 For instance, when the robot is a beginner, when it reaches the top right corner of the arena, 
 the beginner thread has to set moving on 1 to stop the robot, 
 while the message thread needs the value of this variable to send the position of the robot 
-(if moving = 1, there is no need to send the position), and the message thread is waiting for a next to come in order to set moving on 0. Three threads are trying to use/modify a value at the same time, so a mutex is needed.
+(if moving = 1, there is no need to send the position), and the message thread is waiting for a NEXT to come in order to set moving on 0. Three threads are trying to use/modify a value at the same time, so a mutex is needed.
 </p>
 
 <p><code>condition_moving</code> : thread condition to tell the robot when it has to move : when the condition is delivered by the server 
